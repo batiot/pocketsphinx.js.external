@@ -13,6 +13,12 @@ https://rawgit.com/Thread7/pocketsphinx.js.external/master/webapp/live.html
 If you look in your browser console you will see this message:
 `ERROR: "C:\inetpub\wwwroot-funder\bball\pockets\pocketsphinx\src\libpocketsphinx\acmod.c", line 79: Folder '' does not contain acoustic model definition 'mdef'`
 
-Why I would get an error like this with the local path from my development machine is strange.
+Why would I get an error like this with the local path from my development machine?  
+
+The files located in the /webapp/hub4js/ folder were taken from this repository: https://github.com/syl22-00/pocketsphinx.js-en_US-hub4wsj_sc_8k/
+It seemed an easier way to get a test going than buld them myself.
+
+If someone could give suggestions on how to get the loading of external files working, that would be great.
+
 
 
