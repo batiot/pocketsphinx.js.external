@@ -7,6 +7,12 @@ This is a test of the https://github.com/syl22-00/pocketsphinx.js/ repository.  
 
 pocketsphinx-default.js is the original from the original repository included for testing.
 
+You can test it here.
+https://rawgit.com/Thread7/pocketsphinx.js.external/master/webapp/live.html
+
+If you look in your browser console you will see this message:
+`ERROR: "C:\inetpub\wwwroot-funder\bball\pockets\pocketsphinx\src\libpocketsphinx\acmod.c", line 79: Folder '' does not contain acoustic model definition 'mdef'`
+
 
 
 
