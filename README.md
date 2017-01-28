@@ -13,6 +13,6 @@ https://rawgit.com/Thread7/pocketsphinx.js.external/master/webapp/live.html
 If you look in your browser console you will see this message:
 `ERROR: "C:\inetpub\wwwroot-funder\bball\pockets\pocketsphinx\src\libpocketsphinx\acmod.c", line 79: Folder '' does not contain acoustic model definition 'mdef'`
 
-
+Why I would get an error like this with the local path from my development machine is strange.
 
 
