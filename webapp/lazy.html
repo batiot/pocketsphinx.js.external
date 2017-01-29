@@ -43,9 +43,8 @@
             onReady(recognizer);
           };
           //recognizer.postMessage('');
-		  id = function(event) {
-		   console.log('Callback from recognizer.postMessage worked');
-		  };
+		  var id;
+	          console.log('Just declared id and about to try lazyLoad');
 		  recognizer.postMessage({command: 'lazyLoad',
                         callbackId: id,
                         data: {folders: [["/", "hub4-8gau"]],
