@@ -40,6 +40,7 @@
       function spawnWorker(workerURL, onReady) {
           recognizer = new Worker(workerURL);
           recognizer.onmessage = function(event) {
+            console.log('line 43 recognizer message='.event);
             onReady(recognizer);
           };
           //recognizer.postMessage('');
