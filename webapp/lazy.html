@@ -10,6 +10,7 @@
       <li>This demo works on recent versions of Chrome and Firefox with the Web Audio API, make sure it works for you and actually records audio.</li>
       <li>Press "Start" and speak</li>
     </ul>
+    <button type="button" onclick='clicked_lazy_btn();'>Lazy Load</button>	  
     <select id="grammars"></select>
     <button id="startBtn">Start</button>
     <button id="stopBtn">Stop</button>
@@ -226,6 +227,21 @@
       var grammarOses = {numStates: 7, start: 0, end: 6, transitions: [{from: 0, to: 1, word: "WINDOWS"}, {from: 0, to: 1, word: "LINUX"}, {from: 0, to: 1, word: "UNIX"}, {from: 1, to: 2, word: "IS"}, {from: 2, to: 2, word: "NOT"}, {from: 2, to: 6, word: "GOOD"}, {from: 2, to: 6, word: "GREAT"}, {from: 1, to: 6, word: "ROCKS"}, {from: 1, to: 6, word: "SUCKS"}, {from: 0, to: 4, word: "MAC"}, {from: 4, to: 5, word: "O"}, {from: 5, to: 3, word: "S"}, {from: 3, to: 1, word: "X"}, {from: 6, to: 0, word: "AND"}]};
       var grammars = [{title: "OSes", g: grammarOses}, {title: "Digits", g: grammarDigits}, {title: "Cities", g: grammarCities}];
       var grammarIds = [];
+	    
+      function clicked_lazy_btn() {
+           var id;
+	   postRecognizerJob({command: 'lazyLoad', 
+		data: {folders: [["/", "hub4-8gau"]], 
+		files: [["/hub4-8gau", "means", "../hub4-8gau/means"],
+                           ["/hub4-8gau", "variances", "../hub4-8gau/variances"],
+                       ["/hub4-8gau", "transition_matrices", "../hub4-8gau/transition_matrices"],
+                       ["/hub4-8gau", "sendump", "../hub4-8gau/sendump"],
+                       ["/hub4-8gau", "mdef", "../hub4-8gau/mdef"],
+                       ["/hub4-8gau", "feat.params", "../hub4-8gau/feat.params"],
+                       ["/hub4-8gau", "mixture_weights", "../hub4-8gau/mixture_weights"],
+                       ["/hub4-8gau", "noisedict", "../hub4-8gau/noisedict"]]}}
+                  ,
+                    id);    
     </script>
     <!-- These are the two JavaScript files you must load in the HTML,
     The recognizer is loaded through a Web Worker -->
