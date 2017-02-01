@@ -44,22 +44,8 @@
             console.log('line 43 recognizer message='.event);
             onReady(recognizer);
           };
-          //recognizer.postMessage('');
-		  var id;
-	          console.log('Just declared id and about to try lazyLoad');
-		  recognizer.postMessage({command: 'lazyLoad',
-                        callbackId: id,
-                        data: {folders: [["/", "hub4-8gau"]],
-                   files: [["/hub4-8gau", "means", "../hub4-8gau/means"],
-                           ["/hub4-8gau", "variances", "../hub4-8gau/variances"],
-                       ["/hub4-8gau", "transition_matrices", "../hub4-8gau/transition_matrices"],
-                       ["/hub4-8gau", "sendump", "../hub4-8gau/sendump"],
-                       ["/hub4-8gau", "mdef", "../hub4-8gau/mdef"],
-                       ["/hub4-8gau", "feat.params", "../hub4-8gau/feat.params"],
-                       ["/hub4-8gau", "mixture_weights", "../hub4-8gau/mixture_weights"],
-                       ["/hub4-8gau", "noisedict", "../hub4-8gau/noisedict"]]
-                  }
-               });
+          recognizer.postMessage('');
+
       };
 
       // To display the hypothesis sent by the recognizer
@@ -206,7 +192,8 @@
                                         updateStatus("No live audio input in this browser");
                                     });
         else updateStatus("No web audio support in this browser");
-
+      
+      go_lazy();
       // Wiring JavaScript to the UI
       var startBtn = document.getElementById('startBtn');
       var stopBtn = document.getElementById('stopBtn');
@@ -228,20 +215,25 @@
       var grammars = [{title: "OSes", g: grammarOses}, {title: "Digits", g: grammarDigits}, {title: "Cities", g: grammarCities}];
       var grammarIds = [];
 	    
-      function clicked_lazy_btn() {
-           var id;
-	   postRecognizerJob({command: 'lazyLoad', 
-		data: {folders: [["/", "hub4-8gau"]], 
-		files: [["/hub4-8gau", "means", "../hub4-8gau/means"],
-                           ["/hub4-8gau", "variances", "../hub4-8gau/variances"],
-                       ["/hub4-8gau", "transition_matrices", "../hub4-8gau/transition_matrices"],
-                       ["/hub4-8gau", "sendump", "../hub4-8gau/sendump"],
-                       ["/hub4-8gau", "mdef", "../hub4-8gau/mdef"],
-                       ["/hub4-8gau", "feat.params", "../hub4-8gau/feat.params"],
-                       ["/hub4-8gau", "mixture_weights", "../hub4-8gau/mixture_weights"],
-                       ["/hub4-8gau", "noisedict", "../hub4-8gau/noisedict"]]}}
+          function go_lazy() {
+			console.log('Inside go_lazy');
+		  	postRecognizerJob({command: 'lazyLoad', 
+			  data: {folders: [["/", "cmusphinx-en-us-ptm-5.2"]], 
+			  files: [["/cmusphinx-en-us-ptm-5.2", "means", "../cmusphinx-en-us-ptm-5.2/means"],
+                       ["/cmusphinx-en-us-ptm-5.2", "variances", "../cmusphinx-en-us-ptm-5.2/variances"],
+                       ["/cmusphinx-en-us-ptm-5.2", "transition_matrices", "../cmusphinx-en-us-ptm-5.2/transition_matrices"],
+                       ["/cmusphinx-en-us-ptm-5.2", "sendump", "../cmusphinx-en-us-ptm-5.2/sendump"],
+                       ["/cmusphinx-en-us-ptm-5.2", "mdef", "../cmusphinx-en-us-ptm-5.2/mdef"],
+                       ["/cmusphinx-en-us-ptm-5.2", "feat.params", "../cmusphinx-en-us-ptm-5.2/feat.params"],
+                       ["/cmusphinx-en-us-ptm-5.2", "mixture_weights", "../cmusphinx-en-us-ptm-5.2/mixture_weights"],
+                       ["/cmusphinx-en-us-ptm-5.2", "noisedict", "../cmusphinx-en-us-ptm-5.2/noisedict"]]}}
                   ,
-                    id);    
+                       function() {
+							            console.log('Lazy Callback worked');
+                        });
+
+		  
+		  }  //End go_lazy	   
     </script>
     <!-- These are the two JavaScript files you must load in the HTML,
     The recognizer is loaded through a Web Worker -->
